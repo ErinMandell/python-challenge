@@ -1,4 +1,13 @@
-# This is my replacement main.py in PyBank
+# This is my replacement main.py in PyBank.
+# I completed my original PyBank at the end of class Saturday Sept 21.
+# Unfortunately when I got home and ran it, it was a complete whacked out mess.
+# I closed, opened, etc.  No dice.
+# I spent a rather hefty amount of time debugging the ever-increasing errors.
+# It only kept getting worse.
+# I completely rewrote this Saturday night.  NOT FUN.
+# Would love to know why this happened.
+# So now it is with great relief that I present my PyyBank solution to you ... 
+
 
 # Modules
 import os
@@ -25,7 +34,7 @@ with open(csvpath, newline='') as csvfile:
     row_count = sum(1 for row in csvfile)
     #print(row_count)   # debug
 
-
+#Open the csv file again.  not sure why this is necessary, but it won't run without this.
 with open(csvpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header=next(csvreader)
@@ -55,25 +64,24 @@ with open(csvpath, newline='') as csvfile:
             greatest_profit = row_profit
             greatest_profit_month = month
             formatted_profit = ('$' + format(greatest_profit, ',.0f'))
-
+        
+        # Loop to identify losses
         if row_profit < greatest_loss:
             greatest_loss = row_profit
             greatest_loss_month = month
             formatted_loss = ('$' + format(greatest_loss, '.0f'))
 
+    # Print out results
     print("--------------------------")
     print("    Financial Analysis")     
     print("--------------------------")
     print(f"Total Months: {row_count}") 
-    #print("Net Profit: " + str(net_total_profits))
     print(f"Net Profit: {formatted_total}")
-    #print("Average Profit: " + str(average))
     print(f"Average Profit: {formatted_average}")
-    #print("Greatest Profit: " + (greatest_profit_month) + "  "  + str(greatest_profit))  
     print(f"Greatest Profit: {greatest_profit_month}  {formatted_profit}")
-    #print("Greatest Loss: " + (greatest_loss_month) + "  " + str(greatest_loss))
     print(f"Greatest Loss: {greatest_loss_month}  {formatted_loss}")
 
+# write output file
 with open("PyBank_output", 'w') as f:
     f.write("     Financial Analysis\n")
     f.write("-----------------------\n")
@@ -81,4 +89,4 @@ with open("PyBank_output", 'w') as f:
     f.write(f'Net Profit: {formatted_total}\n')
     f.write(f'Average Profit: {formatted_average}\n')
     f.write(f'Greatest Profit: {greatest_profit_month}  {formatted_profit}\n')
-    f.write(f'Greatest Loss: {greatest_loss_month}  {formatted_loss}\n'    
+    f.write(f'Greatest Loss: {greatest_loss_month}  {formatted_loss}')
