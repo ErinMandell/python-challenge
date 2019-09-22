@@ -81,4 +81,4 @@ with open("PyBank_output", 'w') as f:
     f.write(f'Net Profit: {formatted_total}\n')
     f.write(f'Average Profit: {formatted_average}\n')
     f.write(f'Greatest Profit: {greatest_profit_month}  {formatted_profit}\n')
-    f.write(f'Greatest Loss: {greatest_loss_month}  {formatted_loss}\n')    
+    f.write(f'Greatest Loss: {greatest_loss_month}  {formatted_loss}\n'    

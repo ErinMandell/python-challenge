@@ -1,2 +1,1 @@
-# python-challenge
-Demonstration of Homework 3
+Instructor demo
